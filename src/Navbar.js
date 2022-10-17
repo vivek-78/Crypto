@@ -7,28 +7,28 @@ function NavBar()
     return(
         <AppBar position="static" color="">
         <Toolbar>
-        <Grid item>
-         <Typography sx={{marginLeft:"auto"}}>Branding</Typography>
-         </Grid>
         <Grid
           container
           direction="row"
-          justifyContent="center"
+          justifyContent="flex-start"
           alignItems="center"
         >
          <Grid item>
+         <Typography variant="h5" sx={{marginLeft:"auto",fontWeight:"800"}}>Branding</Typography>
+         </Grid>
+         <Grid item>
            <Link to="/crypto" style={{textDecoration: 'none'}}>
-            <Typography sx={{marginLeft:"80px"}}>Crypto</Typography>
+            <Typography sx={{marginLeft:"60px",color:"black"}}>Crypto coins</Typography>
            </Link>
          </Grid>
          <Grid item>
           <Link to="/stockmarket" style={{textDecoration: 'none'}}>
-           <Typography sx={{marginLeft:"80px"}}> Stocks</Typography>
+           <Typography sx={{marginLeft:"60px",color:"black"}}> Stock market</Typography>
           </Link>
          </Grid>
          <Grid item>
           <Link to="/about" style={{textDecoration: 'none'}}>
-           <Typography sx={{marginLeft:"80px"}}>About</Typography>
+           <Typography sx={{marginLeft:"60px",color:"black"}}>About</Typography>
           </Link>
          </Grid>
         </Grid>
