@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from "./Navbar.js";
+import {Routes,Route} from "react-router-dom";
+import {Crypto} from "./crypto";
+import {Stockmarket} from "./stockmarket";
+import {About} from "./about";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <NavBar />
+    <Routes>
+      <Route path="/crypto" element={<Crypto/>} />
+      <Route path="/stockmarket" element={<Stockmarket/>} />
+      <Route path="/about" element={<About/>} />
+    </Routes>
+    </>
   );
 }
 
 export default App;
+//api key = Q75778SE1TM96NYL
