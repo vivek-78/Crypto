@@ -1,7 +1,7 @@
-import React from 'react'
-
+import React from 'react';
+import Development from '../development';
 export default function Stockmarket() {
   return (
-    <div>Stockmarket</div>
+   <Development />
   )
 }
