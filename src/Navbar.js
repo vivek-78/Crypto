@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar,Toolbar, Typography, Grid} from "@mui/material";
+import { AppBar,Toolbar, Typography, Grid, Button} from "@mui/material";
 import {Link} from "react-router-dom";
 
 function NavBar()
@@ -18,17 +18,17 @@ function NavBar()
          </Grid>
          <Grid item>
            <Link to="/crypto" style={{textDecoration: 'none'}}>
-            <Typography sx={{marginLeft:"60px",color:"black"}}>Crypto coins</Typography>
+            <Button sx={{marginLeft:"60px",color:"black"}}>Crypto coins</Button>
            </Link>
          </Grid>
          <Grid item>
           <Link to="/stockmarket" style={{textDecoration: 'none'}}>
-           <Typography sx={{marginLeft:"60px",color:"black"}}> Stock market</Typography>
+           <Button sx={{marginLeft:"30px",color:"black"}}> Stock market</Button>
           </Link>
          </Grid>
          <Grid item>
           <Link to="/about" style={{textDecoration: 'none'}}>
-           <Typography sx={{marginLeft:"60px",color:"black"}}>About</Typography>
+           <Button sx={{marginLeft:"30px",color:"black"}}>About</Button>
           </Link>
          </Grid>
         </Grid>
