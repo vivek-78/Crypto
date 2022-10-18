@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from "./Navbar.js";
 import {Routes,Route} from "react-router-dom";
-import {Crypto} from "./crypto";
+import {Crypto} from "./crypto/list";
 import {Stockmarket} from "./stockmarket";
 import {About} from "./about";
 
