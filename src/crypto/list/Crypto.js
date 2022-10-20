@@ -26,7 +26,7 @@ function createData(
   return { logo, name, price, gainPercent, highestIn24h, lowestIn24h};
 }
   const rows=[
-    createData(data.IMAGEURL,"BITCION",data.PRICE,data.CHANGEPCT24HOUR,data.HIGH24HOUR,data.LOW24HOUR)
+    createData(data.IMAGEURL,"BitCoin",data.PRICE,data.CHANGEPCT24HOUR,data.HIGH24HOUR,data.LOW24HOUR)
   ]
   return (
     <TableContainer component={Paper}>
