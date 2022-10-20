@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import axios from 'axios';
+import { BsArrowUp, BsArrowDown } from 'react-icons/bs'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -18,13 +19,14 @@ function createData(
   name,
   price,
   gainPercent,
-  highestIn24h
+  highestIn24h,
+  lowestIn24h
   
 ) {
-  return { logo, name, price, gainPercent, highestIn24h};
+  return { logo, name, price, gainPercent, highestIn24h, lowestIn24h};
 }
   const rows=[
-    createData(data.IMAGEURL,"BTC",data.PRICE,data.CHANGEPCT24HOUR,data.HIGH24HOUR)
+    createData(data.IMAGEURL,"BITCION",data.PRICE,data.CHANGEPCT24HOUR,data.HIGH24HOUR,data.LOW24HOUR)
   ]
   return (
     <TableContainer component={Paper}>
@@ -36,6 +38,7 @@ function createData(
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Change Percentage</TableCell>
             <TableCell align="right">Highest Today</TableCell>
+            <TableCell align="right">Lowest Today</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,8 +52,9 @@ function createData(
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.gainPercent}</TableCell>
+              <TableCell align="right">{row.gainPercent}% {row.gainPercent ? <BsArrowUp /> : <BsArrowDown/>}</TableCell>
               <TableCell align="right">{row.highestIn24h}</TableCell>
+              <TableCell align="right">{row.lowestIn24h}</TableCell>
             </TableRow>
           ))}
         </TableBody>
