@@ -18,10 +18,18 @@ const Crypto = () => {
   .then((res)=>{
     const key=res.data.DISPLAY;
     const data = (key[element].USD);
-    const createData =(imageUrl,name,price,chPercent,highestToday,leastToday)=>{
-      return imageUrl,name,price,chPercent,highestToday,leastToday;
-    }
-    rows.unshift();
+function createData(
+  logo,
+  name,
+  price,
+  gainPercent,
+  highestIn24h,
+  lowestIn24h
+  
+) {
+  return { logo, name, price, gainPercent, highestIn24h, lowestIn24h};
+}
+  rows.unshift(createData(data.IMAGEURL,"BitCoin",data.PRICE,data.CHANGEPCT24HOUR,data.HIGH24HOUR,data.LOW24HOUR));
 
   });
   })
@@ -39,6 +47,7 @@ const Crypto = () => {
           </TableRow>
         </TableHead>
         <TableBody>
+          
               <TableRow
               key={element}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
