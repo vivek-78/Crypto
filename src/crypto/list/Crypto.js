@@ -9,9 +9,22 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 const Crypto = () => {
-  const [data,setData]= useState({});
+  // const [data,setData]= useState({});
   const coins=["BTC"];
+  const rows=[];
   const url = "https://www.cryptocompare.com/";
+  coins.forEach(element => {
+  axios.get(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${element}&tsyms=USD&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`)
+  .then((res)=>{
+    const key=res.data.DISPLAY;
+    const data = (key[element].USD);
+    const createData =(imageUrl,name,price,chPercent,highestToday,leastToday)=>{
+      return imageUrl,name,price,chPercent,highestToday,leastToday;
+    }
+    rows.unshift();
+
+  });
+  })
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -26,14 +39,7 @@ const Crypto = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-        {coins.map(element => {
-  axios.get(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${element}&tsyms=USD&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`)
-  .then((res)=>{
-    const key=res.data.DISPLAY;
-     setData(key[element].USD);
-  });
-    return(
-    <TableRow
+              <TableRow
               key={element}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
@@ -46,8 +52,7 @@ const Crypto = () => {
               <TableCell align="right">{data.HIGH24HOUR}</TableCell>
               <TableCell align="right">{data.LOW24HOUR}</TableCell>
             </TableRow>
-            );
-  })}
+
         </TableBody>
       </Table>
     </TableContainer>
