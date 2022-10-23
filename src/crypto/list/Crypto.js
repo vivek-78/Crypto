@@ -1,6 +1,4 @@
-import React,{useState} from 'react';
-import axios from 'axios';
-import { BsArrowUp, BsArrowDown } from 'react-icons/bs'
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import CryptoList from './CryptoList';
 
 const Crypto = () => {
-  const coins = ["BTC","ETH","BNB","BCH","ADA","DOGE","DASH"];
+  const coins = ["BTC","ETH","BNB","BCH","ADA","DOGE","DASH","BSV","ZEC","DOT","BAT","AVAX","ATOM"];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -19,10 +17,11 @@ const Crypto = () => {
           <TableRow>
             <TableCell>Logo</TableCell>
             <TableCell align="left">Name</TableCell>
-            <TableCell align="left">Price</TableCell>
-            <TableCell align="left">Change Percentage</TableCell>
+            <TableCell align="center">Price</TableCell>
+            <TableCell align="center">Change Percentage</TableCell>
             <TableCell align="left">Highest Today</TableCell>
             <TableCell align="left">Lowest Today</TableCell>
+            <TableCell align="left">Market Cap</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

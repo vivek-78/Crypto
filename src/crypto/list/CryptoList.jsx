@@ -14,7 +14,7 @@ const CryptoList = (props)=>{
         }
         fetchData();
     },
-    []);
+    );
     return(
         <TableRow
         key={coinData.name}
@@ -23,11 +23,12 @@ const CryptoList = (props)=>{
         <TableCell component="th" scope="row">
           <img src={`https://www.cryptocompare.com${coinData.IMAGEURL}`} width={50} height={50} alt=""></img>
         </TableCell>
-        <TableCell align="left">{"BitCoin"}</TableCell>
-        <TableCell align="left">{coinData.PRICE}</TableCell>
-        <TableCell align="left">{coinData.CHANGEPCT24HOUR}% {coinData.CHANGEPCT24HOUR > 0 ? <BsArrowUp /> : <BsArrowDown/>}</TableCell>
+        <TableCell align="left">{coin}</TableCell>
+        <TableCell align="center">{coinData.PRICE}</TableCell>
+        <TableCell align="center">{coinData.CHANGEPCT24HOUR}% {coinData.CHANGEPCT24HOUR > 0 ? <BsArrowUp /> : <BsArrowDown/>}</TableCell>
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
         <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
+        <TableCell align="left">{coinData.MKTCAP}</TableCell>
       </TableRow>
     )
 }
