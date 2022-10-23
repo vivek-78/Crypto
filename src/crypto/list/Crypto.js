@@ -15,8 +15,8 @@ const Crypto = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Logo</TableCell>
-            <TableCell align="left">Name</TableCell>
+            <TableCell align="center">Logo</TableCell>
+            <TableCell align="center">Name</TableCell>
             <TableCell align="center">Price</TableCell>
             <TableCell align="center">Change Percentage</TableCell>
             <TableCell align="left">Highest Today</TableCell>

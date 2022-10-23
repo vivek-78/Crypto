@@ -20,10 +20,10 @@ const CryptoList = (props)=>{
         key={coinData.name}
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
       >
-        <TableCell component="th" scope="row">
+        <TableCell component="th" scope="row" align="center">
           <img src={`https://www.cryptocompare.com${coinData.IMAGEURL}`} width={50} height={50} alt=""></img>
         </TableCell>
-        <TableCell align="left">{coin}</TableCell>
+        <TableCell align="center">{coin}</TableCell>
         <TableCell align="center">{coinData.PRICE}</TableCell>
         <TableCell align="center">{coinData.CHANGEPCT24HOUR}% {coinData.CHANGEPCT24HOUR > 0 ? <BsArrowUp /> : <BsArrowDown/>}</TableCell>
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
