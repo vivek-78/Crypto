@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 import CryptoList from './CryptoList';
 
 const Crypto = () => {
-  const coins = ["BTC","ETH","BNB","BCH"];
+  const coins = ["BTC","ETH","BNB","BCH","ADA","DOGE","DASH"];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
