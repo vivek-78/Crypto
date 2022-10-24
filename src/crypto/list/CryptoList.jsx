@@ -5,8 +5,7 @@ import {BsArrowUp,BsArrowDown} from "react-icons/bs";
 var previousValue = 0;
 
 const CryptoList = (props)=>{
-    const {coin} = props
-    const [coinData,setCoinData] = useState({});
+    const {coinData} = props;
     const [priceColor,setPriceColor] = useState();
     function setPriceChange(orginalPrice)
     {
@@ -17,30 +16,22 @@ const CryptoList = (props)=>{
     }
 
     useEffect(()=>{
-        async function fetchData(){
-            const fetchedData = await axios.get(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coin}&tsyms=USD&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`)
-            const data = fetchedData.data.DISPLAY[coin];
-            setCoinData(data.USD);
-        }
-        fetchData();
-    },
-    );
-    useEffect(()=>{
         async function changeInPrice(){
             await setPriceChange(coinData.PRICE);
+            console.log("Effect");
         }
         changeInPrice();
     },[coinData.PRICE]
     );
     return(
         <TableRow
-        key={coin}
+        key={coinData.NAME}
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-      >
+        >
         <TableCell component="th" scope="row" align="center">
           <img src={`https://www.cryptocompare.com${coinData.IMAGEURL}`} width={50} height={50} alt=""></img>
         </TableCell>
-        <TableCell align="center">{coin}</TableCell>
+        <TableCell align="center">{coinData.NAME}</TableCell>
         <TableCell align="center" sx={{color:priceColor}}>{coinData.PRICE}</TableCell>
         <TableCell align="center">{coinData.CHANGEPCTDAY}% {coinData.CHANGEPCTDAY > 0 ? <BsArrowUp /> : <BsArrowDown />}</TableCell>
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>

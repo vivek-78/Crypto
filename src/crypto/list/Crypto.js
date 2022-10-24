@@ -1,4 +1,5 @@
-import React from 'react';
+import {React,useEffect,useState} from 'react';
+import axios from "axios";
 import {
     Table,
     TableBody,
@@ -10,7 +11,21 @@ import {
 import CryptoList from './CryptoList';
 
 const Crypto = () => {
-  const coins = ["BTC","ETH","SHIB","BNB","ADA"];
+    const [coinsData,setCoinsData] = useState({});
+    const coins = "BTC,ETH,SHIB,BNB,ADA";
+    const fetchedCoinData = [];
+    useEffect(()=>{
+        async function fetchData(){
+            const fetchedData = await axios.get(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coins}&tsyms=USD&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`)
+            setCoinsData(fetchedData.data.DISPLAY);
+        }
+        fetchData();
+    },[]
+    ); 
+    for(var i in coinsData){
+        coinsData[i].USD.NAME = i;
+        fetchedCoinData.push(coinsData[i].USD); 
+    }
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -26,7 +41,7 @@ const Crypto = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-            {coins.map((coin)=><CryptoList coin={coin} key={coin}/>)}
+           {fetchedCoinData.map(coin=> <CryptoList coinData={coin} key={coin.NAME}/> )}
         </TableBody>
       </Table>
     </TableContainer>
