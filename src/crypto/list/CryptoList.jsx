@@ -8,6 +8,7 @@ const CryptoList = (props)=>{
     const {coin} = props
     const [coinData,setCoinData] = useState({});
     const [priceColor,setPriceColor] = useState();
+    var percentColor;
     function setPriceChange(orginalPrice)
     {
       const trim = orginalPrice.slice(2);
@@ -15,6 +16,12 @@ const CryptoList = (props)=>{
       previousValue > orginalPrice ? setPriceColor("red") : setPriceColor("green");
       previousValue = orginalPrice;
     }
+      if( coinData.CHANGEPCTDAY >0){
+       percentColor = "green"
+      }
+      else{
+        percentColor="red";
+      }
 
     useEffect(()=>{
         async function fetchData(){
@@ -42,7 +49,7 @@ const CryptoList = (props)=>{
         </TableCell>
         <TableCell align="center">{coin}</TableCell>
         <TableCell align="center" sx={{color:priceColor}}>{coinData.PRICE}</TableCell>
-        <TableCell align="center">{coinData.CHANGEPCTDAY}% {coinData.CHANGEPCTDAY > 0 ? <BsArrowUp /> : <BsArrowDown />}</TableCell>
+        <TableCell align="center" sx={{color:percentColor}}>{coinData.CHANGEPCTDAY}% {coinData.CHANGEPCTDAY > 0 ? <BsArrowUp /> : <BsArrowDown />}</TableCell>
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
         <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
         <TableCell align="left">{coinData.MKTCAP}</TableCell>
