@@ -11,9 +11,11 @@ function App() {
     <>
     <NavBar />
     <Routes>
-      <Route path="/crypto" element={<Crypto/>} />
+      <Route path="/crypto">
+        <Route index element={<Crypto/>} />
+        <Route path=":coin" element={<CryptoDetail/>} />
+      </Route>
       <Route path="/stockmarket" element={<Stockmarket/>} />
-      <Route path="/detail" element={<CryptoDetail/>}/>
       <Route path="/about" element={<About/>} />
     </Routes>
     </>
