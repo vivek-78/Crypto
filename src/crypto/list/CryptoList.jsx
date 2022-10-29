@@ -1,7 +1,7 @@
 import {React,useState,useEffect} from "react";
 import axios from "axios";
 import {TableRow,TableCell} from "@mui/material";
-import {BsArrowUp,BsArrowDown} from "react-icons/bs";
+import {TiArrowSortedUp,TiArrowSortedDown} from "react-icons/ti";
 // import CryptoDetail from "../detail/cryptoDetail";
 import { useNavigate } from "react-router-dom";
 var previousValue = 0;
@@ -56,8 +56,8 @@ const CryptoList = (props)=>{
           <img src={`https://www.cryptocompare.com${coinData.IMAGEURL}`} width={50} height={50} alt=""></img>
         </TableCell>
         <TableCell align="center">{coin}</TableCell>
-        <TableCell align="center" sx={{color:priceColor}}>{coinData.PRICE}</TableCell>
-        <TableCell align="center" sx={{color:percentColor}}>{coinData.CHANGEPCTDAY}% {coinData.CHANGEPCTDAY > 0 ? <BsArrowUp /> : <BsArrowDown />}</TableCell>
+        <TableCell align="center" sx={{color:priceColor}}>{coinData.PRICE}{priceColor==="green" ? <TiArrowSortedUp /> : <TiArrowSortedDown />}</TableCell>
+        <TableCell align="center" sx={{color:percentColor}}>{coinData.CHANGEPCTDAY}% {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}</TableCell>
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
         <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
         <TableCell align="left">{coinData.MKTCAP}</TableCell>
