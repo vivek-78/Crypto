@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from "react";
 import Chart from "react-apexcharts";
 import axios from "axios";
+import { Grid } from "@mui/material";
 
 const CryptoDetail =()=>{
     const [chartData,setChartData] = useState({});
@@ -21,6 +22,8 @@ const CryptoDetail =()=>{
     const {prices,times} = chartData;
     console.log(prices,times);
     return (
+    <Grid container>
+        <Grid item xs={12}>
     <Chart 
     type="line"
     width={1349}
@@ -36,6 +39,8 @@ const CryptoDetail =()=>{
     }}
     >
     </Chart>
+    </Grid>
+    </Grid>
     );
 }
 export default CryptoDetail;
