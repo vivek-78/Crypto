@@ -27,6 +27,11 @@ function NavBar()
           </Link>
          </Grid>
          <Grid item>
+          <Link to="/detail" style={{textDecoration: 'none'}}>
+           <Button sx={{marginLeft:"30px",color:"black"}}>Detail</Button>
+          </Link>
+         </Grid>
+         <Grid item>
           <Link to="/about" style={{textDecoration: 'none'}}>
            <Button sx={{marginLeft:"30px",color:"black"}}>About</Button>
           </Link>
