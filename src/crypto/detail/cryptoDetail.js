@@ -36,8 +36,8 @@ const CryptoDetail =(props)=>{
     ]}
    options = {{
     title: {
-			text:coin+" Price",
-			align: 'left',
+			text:coin,
+			align: 'center',
 			margin: 10,
 			offsetX: 0,
 			offsetY: 0,
@@ -47,6 +47,13 @@ const CryptoDetail =(props)=>{
 				color:  '#213043'
 			},
 		},
+    stroke: {
+    show: true,
+    curve: 'smooth',
+    lineCap: 'butt',
+    colors: '#51db5a',
+    width: 2      
+},
     chart: { id: 'bar-chart'},
     xaxis: {
         categories:times 
