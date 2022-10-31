@@ -10,7 +10,7 @@ import {
 import CryptoList from './CryptoList';
 
 const Crypto = () => {
-  const coins = ["BTC","ETH","SHIB","BNB","ADA"];
+  const coins = ["BTC","ETH","SHIB","BNB","ADA","XLM","TRX","USDT","THETA","SOL","MATIC","ETC","DASH"];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
