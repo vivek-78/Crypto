@@ -1,16 +1,31 @@
 import React from 'react';
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,Paper
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper
 } from '@mui/material';
 import CryptoList from './CryptoList';
 
 const Crypto = () => {
-  const coins = ["BTC","ETH","SHIB","BNB","ADA","XLM","TRX","USDT","THETA","SOL","MATIC","ETC","DASH"];
+  const coins = [
+    'BTC',
+    'ETH',
+    'SHIB',
+    'BNB',
+    'ADA',
+    'XLM',
+    'TRX',
+    'USDT',
+    'THETA',
+    'SOL',
+    'MATIC',
+    'ETC',
+    'DASH'
+  ];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -26,10 +41,12 @@ const Crypto = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-            {coins.map((coin)=><CryptoList coin={coin} key={coin}/>)}
+          {coins.map((coin) => (
+            <CryptoList coin={coin} key={coin} />
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 export default Crypto;

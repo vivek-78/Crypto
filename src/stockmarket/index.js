@@ -1,1 +1,1 @@
-export {default as Stockmarket} from "./Stockmarket";
+export { default as Stockmarket } from './Stockmarket';
