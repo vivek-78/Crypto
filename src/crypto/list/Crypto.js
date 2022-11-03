@@ -38,6 +38,7 @@ const Crypto = () => {
             <TableCell align="left">Highest Today</TableCell>
             <TableCell align="left">Lowest Today</TableCell>
             <TableCell align="left">Market Cap</TableCell>
+            <TableCell align="left">Last Hour</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -2,8 +2,8 @@ import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import { TableRow, TableCell } from '@mui/material';
 import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
-// import CryptoDetail from "../detail/cryptoDetail";
 import { useNavigate } from 'react-router-dom';
+import { MiniCoinChart } from './components';
 var previousValue = 0;
 
 const CryptoList = (props) => {
@@ -12,7 +12,9 @@ const CryptoList = (props) => {
   const navigate = useNavigate();
   const [coinData, setCoinData] = useState({});
   const [priceColor, setPriceColor] = useState();
+  const [chartData, setChartData] = useState([]);
   var percentColor;
+  // const data = [0, 2000, 3430, 4900.3, 1000, 2000, 780];
   const handleRowClick = () => {
     navigate(`/crypto/${coin}`);
   };
@@ -39,6 +41,20 @@ const CryptoList = (props) => {
     fetchData();
   });
   useEffect(() => {
+    function fetchData() {
+      axios
+        .get(
+          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=6&api_key=4e9bf69d838c7e61bc2b230a4d5887933b468da784d876f8777d16d0e34241a1`
+        )
+        .then((fetchedData) => {
+          const data = fetchedData.data.Data.Data;
+          const prices = data.map((obj) => obj.close);
+          setChartData([0, ...prices]);
+        });
+    }
+    fetchData();
+  });
+  useEffect(() => {
     async function changeInPrice() {
       await setPriceChange(coinData.PRICE);
     }
@@ -49,6 +65,7 @@ const CryptoList = (props) => {
       <TableRow
         key={coin}
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        style={{ cursor: 'pointer' }}
         onClick={handleRowClick}>
         <TableCell component="th" scope="row" align="center">
           <img
@@ -69,6 +86,7 @@ const CryptoList = (props) => {
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
         <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
         <TableCell align="left">{coinData.MKTCAP}</TableCell>
+        <TableCell align="left">{<MiniCoinChart data={chartData} />}</TableCell>
       </TableRow>
     </>
   );

@@ -11,7 +11,7 @@ const CryptoDetail = () => {
     function fetchData() {
       axios
         .get(
-          `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=119&api_key=4e9bf69d838c7e61bc2b230a4d5887933b468da784d876f8777d16d0e34241a1`
+          `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=100&api_key=4e9bf69d838c7e61bc2b230a4d5887933b468da784d876f8777d16d0e34241a1`
         )
         .then((fetchedData) => {
           const data = fetchedData.data.Data.Data;
