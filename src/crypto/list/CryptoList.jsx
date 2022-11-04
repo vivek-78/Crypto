@@ -12,22 +12,20 @@ const CryptoList = (props) => {
   const navigate = useNavigate();
   const [coinData, setCoinData] = useState({});
   const [priceColor, setPriceColor] = useState();
-  const [chartData, setChartData] = useState([]);
   var percentColor;
-  // const data = [0, 2000, 3430, 4900.3, 1000, 2000, 780];
   const handleRowClick = () => {
     navigate(`/crypto/${coin}`);
   };
   function setPriceChange(orginalPrice) {
     const trim = orginalPrice.slice(2);
     orginalPrice = parseFloat(trim.replace(/,/g, ''));
-    previousValue > orginalPrice ? setPriceColor('red') : setPriceColor('green');
+    previousValue > orginalPrice ? setPriceColor('#FF0000') : setPriceColor('#00FF00');
     previousValue = orginalPrice;
   }
   if (coinData.CHANGEPCTDAY > 0) {
-    percentColor = 'green';
+    percentColor = '#00FF00';
   } else {
-    percentColor = 'red';
+    percentColor = '#FF0000';
   }
 
   useEffect(() => {
@@ -37,20 +35,6 @@ const CryptoList = (props) => {
       );
       const data = fetchedData.data.DISPLAY[coin];
       setCoinData(data.USD);
-    }
-    fetchData();
-  });
-  useEffect(() => {
-    function fetchData() {
-      axios
-        .get(
-          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=6&api_key=4e9bf69d838c7e61bc2b230a4d5887933b468da784d876f8777d16d0e34241a1`
-        )
-        .then((fetchedData) => {
-          const data = fetchedData.data.Data.Data;
-          const prices = data.map((obj) => obj.close);
-          setChartData([0, ...prices]);
-        });
     }
     fetchData();
   });
@@ -77,7 +61,7 @@ const CryptoList = (props) => {
         <TableCell align="center">{coin}</TableCell>
         <TableCell align="center" sx={{ color: priceColor }}>
           {coinData.PRICE}
-          {priceColor === 'green' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+          {priceColor === '#00FF00' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
         </TableCell>
         <TableCell align="center" sx={{ color: percentColor }}>
           {coinData.CHANGEPCTDAY}%{' '}
@@ -86,7 +70,7 @@ const CryptoList = (props) => {
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
         <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
         <TableCell align="left">{coinData.MKTCAP}</TableCell>
-        <TableCell align="left">{<MiniCoinChart data={chartData} />}</TableCell>
+        <TableCell align="left">{<MiniCoinChart coin={coin} color={percentColor} />}</TableCell>
       </TableRow>
     </>
   );
