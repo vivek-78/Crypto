@@ -4,7 +4,7 @@ import { TableRow, TableCell } from '@mui/material';
 import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
 // import CryptoDetail from "../detail/cryptoDetail";
 import { useNavigate } from 'react-router-dom';
-import {ListSkeleton} from "./components";
+import { ListSkeleton } from './components';
 var previousValue = 0;
 
 const CryptoList = (props) => {
@@ -37,7 +37,7 @@ const CryptoList = (props) => {
       );
       const data = fetchedData.data.DISPLAY[coin];
       setCoinData(data.USD);
-      setLoading(false)
+      setLoading(false);
     }
     fetchData();
   });
@@ -49,32 +49,34 @@ const CryptoList = (props) => {
   }, [coinData.PRICE]);
   return (
     <>
-     {loading ? <ListSkeleton />:(
-      <TableRow
-      key={coin}
-      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-      onClick={handleRowClick}>
-      <TableCell component="th" scope="row" align="center">
-        <img
-          src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
-          width={50}
-          height={50}
-          alt=""></img>
-      </TableCell>
-      <TableCell align="center">{coin}</TableCell>
-      <TableCell align="center" sx={{ color: priceColor }}>
-        {coinData.PRICE}
-        {priceColor === 'green' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
-      </TableCell>
-      <TableCell align="center" sx={{ color: percentColor }}>
-        {coinData.CHANGEPCTDAY}%{' '}
-        {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
-      </TableCell>
-      <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
-      <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
-      <TableCell align="left">{coinData.MKTCAP}</TableCell>
-    </TableRow>
-     )}
+      {loading ? (
+        <ListSkeleton />
+      ) : (
+        <TableRow
+          key={coin}
+          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          onClick={handleRowClick}>
+          <TableCell component="th" scope="row" align="center">
+            <img
+              src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
+              width={50}
+              height={50}
+              alt=""></img>
+          </TableCell>
+          <TableCell align="center">{coin}</TableCell>
+          <TableCell align="center" sx={{ color: priceColor }}>
+            {coinData.PRICE}
+            {priceColor === 'green' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+          </TableCell>
+          <TableCell align="center" sx={{ color: percentColor }}>
+            {coinData.CHANGEPCTDAY}%{' '}
+            {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+          </TableCell>
+          <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
+          <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
+          <TableCell align="left">{coinData.MKTCAP}</TableCell>
+        </TableRow>
+      )}
     </>
   );
 };

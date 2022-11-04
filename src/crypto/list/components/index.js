@@ -1,1 +1,1 @@
-export {default as ListSkeleton} from "./ListSkeleton";
+export { default as ListSkeleton } from './ListSkeleton';
