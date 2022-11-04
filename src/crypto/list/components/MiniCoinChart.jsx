@@ -65,6 +65,13 @@ const CryptoDetail = (props) => {
               labels: {
                 show: false
               }
+            },
+            states: {
+              hover: {
+                filter: {
+                  type: 'none'
+                }
+              }
             }
           }}></Chart>
       </Grid>
