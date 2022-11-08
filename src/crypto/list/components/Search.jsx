@@ -41,7 +41,15 @@ const Search = () => {
       <Grid item>
         <input
           onChange={textOnChange}
-          style={{ height: '32px', borderRadius: '5px', marginLeft: '10px', paddingLeft: '10px' }}
+          placeholder="Enter Coin Name"
+          style={{
+            height: '32px',
+            borderRadius: '5px',
+            marginLeft: '10px',
+            padding: '2px 20px',
+            borderStyle: 'solid',
+            borderWidth: 'small'
+          }}
         />
       </Grid>
       <Grid item>
