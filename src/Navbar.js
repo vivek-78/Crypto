@@ -9,7 +9,7 @@ function NavBar() {
         <Grid container direction="row" justifyContent="flex-start" alignItems="center">
           <Grid item>
             <Typography variant="h5" sx={{ marginLeft: 'auto', fontWeight: '800' }}>
-              Branding
+              ProjectName
             </Typography>
           </Grid>
           <Grid item>
@@ -20,11 +20,6 @@ function NavBar() {
           <Grid item>
             <Link to="/stockmarket" style={{ textDecoration: 'none' }}>
               <Button sx={{ marginLeft: '30px', color: 'black' }}> Stock market</Button>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to="/detail" style={{ textDecoration: 'none' }}>
-              <Button sx={{ marginLeft: '30px', color: 'black' }}>Detail</Button>
             </Link>
           </Grid>
           <Grid item>
