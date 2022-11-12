@@ -31,7 +31,7 @@ const CryptoList = (props) => {
   useEffect(() => {
     async function fetchData() {
       const fetchedData = await axios.get(
-        `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coin}&tsyms=USD&api_key=4e9bf69d838c7e61bc2b230a4d5887933b468da784d876f8777d16d0e34241a1`
+        `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coin}&tsyms=USD&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
       );
       const data = fetchedData.data.DISPLAY[coin];
       setCoinData(data.USD);

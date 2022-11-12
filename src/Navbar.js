@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <AppBar position="static" color="">
+    <AppBar position="static" color="" sx={{ marginBottom: 2 }}>
       <Toolbar>
         <Grid container direction="row" justifyContent="flex-start" alignItems="center">
           <Grid item>
@@ -20,11 +20,6 @@ function NavBar() {
           <Grid item>
             <Link to="/stockmarket" style={{ textDecoration: 'none' }}>
               <Button sx={{ marginLeft: '30px', color: 'black' }}> Stock market</Button>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to="/detail" style={{ textDecoration: 'none' }}>
-              <Button sx={{ marginLeft: '30px', color: 'black' }}>Detail</Button>
             </Link>
           </Grid>
           <Grid item>
