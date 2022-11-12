@@ -66,7 +66,13 @@ const CryptoDetail = () => {
               show: false
             },
             xaxis: {
-              categories: times
+              categories: times,
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              }
             }
           }}></Chart>
       </Grid>
