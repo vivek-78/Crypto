@@ -4,6 +4,7 @@ import { TableRow, TableCell } from '@mui/material';
 import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
 import { useNavigate } from 'react-router-dom';
 import { MiniCoinChart } from './components';
+import { ListSkeleton } from './components';
 var previousValue = 0;
 
 const CryptoList = (props) => {
@@ -12,6 +13,7 @@ const CryptoList = (props) => {
   const navigate = useNavigate();
   const [coinData, setCoinData] = useState({});
   const [priceColor, setPriceColor] = useState();
+  const [loading, setLoading] = useState(true);
   var percentColor;
   const handleRowClick = () => {
     navigate(`/crypto/${coin}`);
@@ -35,6 +37,7 @@ const CryptoList = (props) => {
       );
       const data = fetchedData.data.DISPLAY[coin];
       setCoinData(data.USD);
+      setLoading(false);
     }
     fetchData();
   });
@@ -46,7 +49,10 @@ const CryptoList = (props) => {
   }, [coinData.PRICE]);
   return (
     <>
-      <TableRow
+      {loading ? (
+        <ListSkeleton />
+      ) : (
+ <TableRow
         key={coin}
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
         style={{ cursor: 'pointer' }}
@@ -72,6 +78,7 @@ const CryptoList = (props) => {
         <TableCell align="left">{coinData.MKTCAP}</TableCell>
         <TableCell align="left">{<MiniCoinChart coin={coin} color={percentColor} />}</TableCell>
       </TableRow>
+      )}
     </>
   );
 };
