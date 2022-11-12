@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from 'react';
-import axios from 'axios';
+import { React } from 'react';
+
 import {
   Table,
   TableBody,
@@ -8,29 +8,10 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Grid,
-  Typography
+  Grid
 } from '@mui/material';
-import Development from '../../development';
 import CryptoList from './CryptoList';
-import { CryptoNews } from './components';
-
 const Crypto = () => {
-  const [newsData, setNewsData] = useState({});
-  var count = 0;
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedData = await axios.get(
-        `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
-      );
-      const data = fetchedData.data.Data;
-      setNewsData(data);
-    }
-    fetchData();
-  });
-  if (newsData == null) {
-    return <Development />;
-  }
   const coins = [
     'BTC',
     'ETH',
@@ -49,24 +30,6 @@ const Crypto = () => {
   ];
   return (
     <Grid>
-      <Grid item xs={12}>
-        <Typography variant="h5">Latest News</Typography> <br />
-      </Grid>
-      <Grid container direction="row" spacing={2} sx={{ marginLeft: 2 }} className="con">
-        {Array.isArray(newsData)
-          ? newsData.map((data) => (
-              <Grid item key={data.id}>
-                <CryptoNews
-                  count={++count}
-                  src={data.source_info.name}
-                  title={data.title}
-                  url={data.url}
-                  image={data.imageurl}
-                />
-              </Grid>
-            ))
-          : ''}
-      </Grid>
       <Grid item>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
