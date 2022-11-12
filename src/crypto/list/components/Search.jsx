@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import { Grid, Button, Backdrop, CircularProgress, Snackbar } from '@mui/material';
+import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Search = () => {
@@ -33,7 +34,7 @@ const Search = () => {
     <Grid
       item
       container
-      justifyContent="flex-start"
+      justifyContent="flex-end"
       alignItems="center"
       spacing={1}
       xs={12}
@@ -46,6 +47,7 @@ const Search = () => {
             height: '32px',
             borderRadius: '5px',
             marginLeft: '10px',
+            marginRight: '0',
             padding: '2px 20px',
             borderStyle: 'solid',
             borderWidth: 'small'
@@ -54,6 +56,7 @@ const Search = () => {
       </Grid>
       <Grid item>
         <Button variant="contained" onClick={handleOnClick}>
+          <SearchTwoToneIcon />
           Search
         </Button>
       </Grid>

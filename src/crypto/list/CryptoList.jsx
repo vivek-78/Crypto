@@ -52,32 +52,43 @@ const CryptoList = (props) => {
       {loading ? (
         <ListSkeleton />
       ) : (
- <TableRow
-        key={coin}
-        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-        style={{ cursor: 'pointer' }}
-        onClick={handleRowClick}>
-        <TableCell component="th" scope="row" align="center">
-          <img
-            src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
-            width={50}
-            height={50}
-            alt=""></img>
-        </TableCell>
-        <TableCell align="center">{coin}</TableCell>
-        <TableCell align="center" sx={{ color: priceColor }}>
-          {coinData.PRICE}
-          {priceColor === '#00FF00' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
-        </TableCell>
-        <TableCell align="center" sx={{ color: percentColor }}>
-          {coinData.CHANGEPCTDAY}%{' '}
-          {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
-        </TableCell>
-        <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>
-        <TableCell align="left">{coinData.LOW24HOUR}</TableCell>
-        <TableCell align="left">{coinData.MKTCAP}</TableCell>
-        <TableCell align="left">{<MiniCoinChart coin={coin} color={percentColor} />}</TableCell>
-      </TableRow>
+        <TableRow
+          key={coin}
+          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          style={{ cursor: 'pointer' }}
+          height={50}
+          onClick={handleRowClick}>
+          <TableCell component="th" scope="row" align="center" sx={{ padding: '0px 0px 0px 0px' }}>
+            <img
+              src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
+              width={50}
+              height={50}
+              alt=""></img>
+          </TableCell>
+          <TableCell align="center" sx={{ padding: '0px 0px 0px 0px' }}>
+            {coin}
+          </TableCell>
+          <TableCell align="center" sx={{ color: priceColor, padding: '0px 0px 0px 0px' }}>
+            {coinData.PRICE}
+            {priceColor === '#00FF00' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+          </TableCell>
+          <TableCell align="center" sx={{ color: percentColor, padding: '0px 0px 0px 0px' }}>
+            {coinData.CHANGEPCTDAY}%{' '}
+            {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+          </TableCell>
+          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
+            {coinData.HIGH24HOUR}
+          </TableCell>
+          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
+            {coinData.LOW24HOUR}
+          </TableCell>
+          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
+            {coinData.MKTCAP}
+          </TableCell>
+          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
+            {<MiniCoinChart coin={coin} color={percentColor} />}
+          </TableCell>
+        </TableRow>
       )}
     </>
   );
