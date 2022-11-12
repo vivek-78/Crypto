@@ -1,5 +1,4 @@
 import { React } from 'react';
-import CryptoList from './CryptoList';
 import { Search } from './components';
 import {
   Table,
@@ -8,9 +7,10 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Grid,
-  Paper
+  Paper,
+  Grid
 } from '@mui/material';
+import CryptoList from './CryptoList';
 const coins = [
   'BTC',
   'ETH',
@@ -44,6 +44,7 @@ const Crypto = () => {
                 <TableCell align="left">Highest Today</TableCell>
                 <TableCell align="left">Lowest Today</TableCell>
                 <TableCell align="left">Market Cap</TableCell>
+                <TableCell align="left">Last Hour</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -54,7 +55,6 @@ const Crypto = () => {
           </Table>
         </TableContainer>
       </Grid>
-      <Grid item></Grid>
     </Grid>
   );
 };

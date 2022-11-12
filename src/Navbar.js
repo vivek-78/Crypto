@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <AppBar position="static" color="" sx={{ marginBottom: '10px' }}>
+    <AppBar position="static" color="" sx={{ marginBottom: 2 }}>
       <Toolbar>
         <Grid container direction="row" justifyContent="flex-start" alignItems="center">
           <Grid item>
