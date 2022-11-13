@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Grid, Button, Backdrop, CircularProgress, Snackbar } from '@mui/material';
-import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
+import { SearchTwoToneIcon } from '@mui/icons-material/SearchTwoTone';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Search = () => {
