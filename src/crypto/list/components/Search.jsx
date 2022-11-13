@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Grid, Button, Backdrop, CircularProgress, Snackbar } from '@mui/material';
-import { SearchTwoToneIcon } from '@mui/icons-material/SearchTwoTone';
+import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Search = () => {
@@ -17,7 +17,6 @@ const Search = () => {
   const handleOnClick = async () => {
     setLoading(true);
     const FetchedData = await axios.get(`https://api.coingecko.com/api/v3/search?query=${search}`);
-    console.log(FetchedData);
     const coinSymbol = FetchedData?.data?.coins[0]?.symbol;
     const coinName = FetchedData?.data?.coins[0]?.id;
     if (search.toUpperCase() == coinSymbol || search.toLowerCase() == coinName) {
