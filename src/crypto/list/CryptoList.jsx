@@ -59,8 +59,8 @@ const CryptoList = (props) => {
           height={75}
           onClick={handleRowClick}>
           <TableCell component="th" scope="row" align="center" sx={{ padding: '0px 0px 0px 0px' }}>
-            <Grid container>
-              <Grid item xs={6} spacing={-2}>
+            <Grid container spacing={1}>
+              <Grid item xs={6}>
                 <img
                   src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
                   width={40}
