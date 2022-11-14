@@ -15,6 +15,7 @@ import CryptoList from './CryptoList';
 const coins = [
   'BTC',
   'ETH',
+  'SOL',
   'USDC',
   'TWT',
   'BNB',
@@ -23,7 +24,6 @@ const coins = [
   'TRX',
   'USDT',
   'THETA',
-  'SOL',
   'MATIC',
   'ETC',
   'DASH'
