@@ -40,25 +40,25 @@ const Crypto = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center">
-                  <Typography sx={{ fontWeight: '500' }}>Coin</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Coin</Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography sx={{ fontWeight: '500' }}>Price</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Price</Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography sx={{ fontWeight: '500' }}>Change%</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Change%</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: '500' }}>Highest Today</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Highest Today</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: '500' }}>Lowest Today</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Lowest Today</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: '500' }}>Market Cap</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Market Cap</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: '500' }}>Last 7 Days</Typography>
+                  <Typography sx={{ fontWeight: 'bold' }}>Last 7 Days</Typography>
                 </TableCell>
               </TableRow>
             </TableHead>
