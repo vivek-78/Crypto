@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Grid, Button, Backdrop, CircularProgress, Snackbar } from '@mui/material';
+import { Grid, Button, Backdrop, CircularProgress, Snackbar, Typography } from '@mui/material';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -33,31 +33,42 @@ const Search = () => {
     <Grid
       item
       container
-      justifyContent="flex-end"
+      direction="column"
+      justifyContent="center"
       alignItems="center"
-      spacing={1}
+      spacing={2}
       xs={12}
       sx={{ marginBottom: '10px' }}>
-      <Grid item>
-        <input
-          onChange={textOnChange}
-          placeholder="Enter Coin Name"
-          style={{
-            height: '32px',
-            borderRadius: '5px',
-            marginLeft: '10px',
-            marginRight: '0',
-            padding: '2px 20px',
-            borderStyle: 'solid',
-            borderWidth: 'small'
-          }}
-        />
+      <Grid item xs={12}>
+        <Typography variant="h3" sx={{ fontWeight: '300' }}>
+          Explore the crypto world!
+        </Typography>
       </Grid>
-      <Grid item>
-        <Button variant="contained" onClick={handleOnClick}>
-          <SearchTwoToneIcon />
-          Search
-        </Button>
+      <Grid item container direction="row" justifyContent="center" alignItems="center" spacing={1}>
+        <Grid item>
+          <input
+            onChange={textOnChange}
+            placeholder="Search for coins"
+            style={{
+              height: '32px',
+              width: '250px',
+              alignItem: 'center',
+              borderRadius: '10px',
+              padding: '2px 20px',
+              borderStyle: 'solid',
+              borderWidth: 'small'
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            onClick={handleOnClick}
+            startIcon={<SearchTwoToneIcon />}
+            sx={{ maringTop: '0px', borderRadius: '10px', marginLeft: '0px' }}>
+            Search
+          </Button>
+        </Grid>
       </Grid>
       <Backdrop open={loading}>
         <CircularProgress sx={{ color: 'white' }} />

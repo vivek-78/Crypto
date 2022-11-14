@@ -30,8 +30,8 @@ const coins = [
 ];
 const Crypto = () => {
   return (
-    <Grid container>
-      <Grid item xs={12} sx={{ marginLeft: 'auto', marginRight: 'auto' }}>
+    <Grid container direction="column" spacing={8}>
+      <Grid item xs={12} sx={{ marginTop: '50px' }}>
         <Search />
       </Grid>
       <Grid item xs={12}>
@@ -40,25 +40,25 @@ const Crypto = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center">
-                  <Typography sx={{ fontWeight: 'bold' }}>Coin</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Coin</Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography sx={{ fontWeight: 'bold' }}>Price</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Price</Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography sx={{ fontWeight: 'bold' }}>Change%</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Change%</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: 'bold' }}>Highest Today</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Highest Today</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: 'bold' }}>Lowest Today</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Lowest Today</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: 'bold' }}>Market Cap</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Market Cap</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography sx={{ fontWeight: 'bold' }}>Last 7 Days</Typography>
+                  <Typography sx={{ fontWeight: '500' }}>Last 7 Days</Typography>
                 </TableCell>
               </TableRow>
             </TableHead>

@@ -68,7 +68,7 @@ const CryptoList = (props) => {
                   alt=""></img>
               </Grid>
               <Grid item xs={6} sx={{ marginTop: 'auto', marginBottom: 'auto' }}>
-                <Typography sx={{ width: '10px', fontWeight: '700' }}> {coin} </Typography>
+                <Typography sx={{ width: '10px', fontWeight: '535' }}> {coin} </Typography>
               </Grid>
             </Grid>
           </TableCell>
