@@ -28,9 +28,9 @@ const CryptoDetail = (props) => {
       <Grid item xs={2}>
         <Chart
           type="line"
-          width={100}
+          width={125}
           height={80}
-          sx={{ padding: '0px 0px 0px 0px' }}
+          sx={{ padding: '0px 0px 0px 0px', margin: '0px 0px 0px 0px' }}
           series={[
             {
               name: coin + '(USD)',

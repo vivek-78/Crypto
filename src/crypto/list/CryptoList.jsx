@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import { TableRow, TableCell } from '@mui/material';
+import { TableRow, TableCell, Typography, Grid } from '@mui/material';
 import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
 import { useNavigate } from 'react-router-dom';
 import { MiniCoinChart } from './components';
@@ -56,36 +56,44 @@ const CryptoList = (props) => {
           key={coin}
           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           style={{ cursor: 'pointer' }}
-          height={50}
+          height={75}
           onClick={handleRowClick}>
           <TableCell component="th" scope="row" align="center" sx={{ padding: '0px 0px 0px 0px' }}>
-            <img
-              src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
-              width={50}
-              height={50}
-              alt=""></img>
-          </TableCell>
-          <TableCell align="center" sx={{ padding: '0px 0px 0px 0px' }}>
-            {coin}
+            <Grid container spacing={1}>
+              <Grid item xs={6}>
+                <img
+                  src={`https://www.cryptocompare.com${coinData.IMAGEURL}`}
+                  width={40}
+                  height={40}
+                  alt=""></img>
+              </Grid>
+              <Grid item xs={6} sx={{ marginTop: 'auto', marginBottom: 'auto' }}>
+                <Typography sx={{ width: '10px', fontWeight: '535' }}> {coin} </Typography>
+              </Grid>
+            </Grid>
           </TableCell>
           <TableCell align="center" sx={{ color: priceColor, padding: '0px 0px 0px 0px' }}>
-            {coinData.PRICE}
-            {priceColor === '#00FF00' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+            <Typography>
+              {coinData.PRICE}
+              {priceColor === '#00FF00' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+            </Typography>
           </TableCell>
           <TableCell align="center" sx={{ color: percentColor, padding: '0px 0px 0px 0px' }}>
-            {coinData.CHANGEPCTDAY}%{' '}
-            {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+            <Typography>
+              {coinData.CHANGEPCTDAY}%{''}
+              {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+            </Typography>
           </TableCell>
-          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
-            {coinData.HIGH24HOUR}
+          <TableCell align="center">
+            <Typography sx={{ padding: '0px 0px 0px 0px' }}>{coinData.HIGH24HOUR}</Typography>
           </TableCell>
-          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
-            {coinData.LOW24HOUR}
+          <TableCell align="center" sx={{ padding: '0px 0px 0px 0px' }}>
+            <Typography>{coinData.LOW24HOUR}</Typography>
           </TableCell>
-          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
-            {coinData.MKTCAP}
+          <TableCell align="center" sx={{ padding: '0px 0px 0px 0px' }}>
+            <Typography>{coinData.MKTCAP}</Typography>
           </TableCell>
-          <TableCell align="left" sx={{ padding: '0px 0px 0px 0px' }}>
+          <TableCell align="right" sx={{ padding: '0px 0px 0px 0px' }}>
             {<MiniCoinChart coin={coin} color={percentColor} />}
           </TableCell>
         </TableRow>

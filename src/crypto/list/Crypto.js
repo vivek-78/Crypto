@@ -48,16 +48,16 @@ const Crypto = () => {
                 <TableCell align="center">
                   <Typography sx={{ fontWeight: 'bold' }}>Change%</Typography>
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="center">
                   <Typography sx={{ fontWeight: 'bold' }}>Highest Today</Typography>
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="center">
                   <Typography sx={{ fontWeight: 'bold' }}>Lowest Today</Typography>
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="center">
                   <Typography sx={{ fontWeight: 'bold' }}>Market Cap</Typography>
                 </TableCell>
-                <TableCell align="left">
+                <TableCell align="center">
                   <Typography sx={{ fontWeight: 'bold' }}>Last 7 Days</Typography>
                 </TableCell>
               </TableRow>
