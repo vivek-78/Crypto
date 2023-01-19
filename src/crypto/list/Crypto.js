@@ -8,28 +8,30 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Grid
+  Grid,
+  Typography
 } from '@mui/material';
 import CryptoList from './CryptoList';
 const coins = [
   'BTC',
   'ETH',
-  'SHIB',
+  'SOL',
+  'USDC',
+  'TWT',
   'BNB',
   'ADA',
   'XLM',
   'TRX',
   'USDT',
   'THETA',
-  'SOL',
   'MATIC',
   'ETC',
   'DASH'
 ];
 const Crypto = () => {
   return (
-    <Grid container>
-      <Grid item xs={12} sx={{ marginLeft: 'auto', marginRight: 'auto' }}>
+    <Grid container direction="column" spacing={8}>
+      <Grid item xs={12} sx={{ marginTop: '50px' }}>
         <Search />
       </Grid>
       <Grid item xs={12}>
@@ -37,14 +39,27 @@ const Crypto = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="center">Logo</TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Price</TableCell>
-                <TableCell align="center">Change Percentage</TableCell>
-                <TableCell align="left">Highest Today</TableCell>
-                <TableCell align="left">Lowest Today</TableCell>
-                <TableCell align="left">Market Cap</TableCell>
-                <TableCell align="left">Last Hour</TableCell>
+                <TableCell align="center">
+                  <Typography sx={{ fontWeight: 'bold' }}>Coin</Typography>
+                </TableCell>
+                <TableCell align="center">
+                  <Typography sx={{ fontWeight: 'bold' }}>Price</Typography>
+                </TableCell>
+                <TableCell align="center">
+                  <Typography sx={{ fontWeight: 'bold' }}>Change%</Typography>
+                </TableCell>
+                <TableCell align="left">
+                  <Typography sx={{ fontWeight: 'bold' }}>Highest Today</Typography>
+                </TableCell>
+                <TableCell align="left">
+                  <Typography sx={{ fontWeight: 'bold' }}>Lowest Today</Typography>
+                </TableCell>
+                <TableCell align="left">
+                  <Typography sx={{ fontWeight: 'bold' }}>Market Cap</Typography>
+                </TableCell>
+                <TableCell align="left">
+                  <Typography sx={{ fontWeight: 'bold' }}>Last 7 Days</Typography>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
