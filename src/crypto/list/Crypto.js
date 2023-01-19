@@ -1,5 +1,5 @@
 import { React } from 'react';
-
+import { Search } from './components';
 import {
   Table,
   TableBody,
@@ -11,26 +11,28 @@ import {
   Grid
 } from '@mui/material';
 import CryptoList from './CryptoList';
+const coins = [
+  'BTC',
+  'ETH',
+  'SHIB',
+  'BNB',
+  'ADA',
+  'XLM',
+  'TRX',
+  'USDT',
+  'THETA',
+  'SOL',
+  'MATIC',
+  'ETC',
+  'DASH'
+];
 const Crypto = () => {
-  const coins = [
-    'BTC',
-    'ETH',
-    'SHIB',
-    'BNB',
-    'ADA',
-    'XLM',
-    'TRX',
-    'USDT',
-    'THETA',
-    'SOL',
-    'MATIC',
-    'ETC',
-    'DASH',
-    'ZEC'
-  ];
   return (
-    <Grid>
-      <Grid item>
+    <Grid container>
+      <Grid item xs={12} sx={{ marginLeft: 'auto', marginRight: 'auto' }}>
+        <Search />
+      </Grid>
+      <Grid item xs={12}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
