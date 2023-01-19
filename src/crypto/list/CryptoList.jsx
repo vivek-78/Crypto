@@ -93,7 +93,7 @@ const CryptoList = (props) => {
           <TableCell align="center" sx={{ padding: '0px 0px 0px 0px' }}>
             <Typography>{coinData.MKTCAP}</Typography>
           </TableCell>
-          <TableCell align="right" sx={{ padding: '0px 0px 0px 0px' }}>
+          <TableCell align="right" sx={{ padding: '0px 0px 0px 0px', marginleft: '10px' }}>
             {<MiniCoinChart coin={coin} color={percentColor} />}
           </TableCell>
         </TableRow>

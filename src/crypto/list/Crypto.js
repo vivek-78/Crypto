@@ -36,7 +36,7 @@ const Crypto = () => {
       </Grid>
       <Grid item xs={12}>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 500 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell align="center">
@@ -57,7 +57,7 @@ const Crypto = () => {
                 <TableCell align="center">
                   <Typography sx={{ fontWeight: 'bold' }}>Market Cap</Typography>
                 </TableCell>
-                <TableCell align="center">
+                <TableCell align="left">
                   <Typography sx={{ fontWeight: 'bold' }}>Last 7 Days</Typography>
                 </TableCell>
               </TableRow>
