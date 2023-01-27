@@ -8,7 +8,6 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Grid,
   Typography
 } from '@mui/material';
 import CryptoList from './CryptoList';
@@ -30,7 +29,7 @@ const coins = [
 ];
 const Crypto = () => {
   return (
-    <Grid container direction="column" spacing={8}>
+    <>
       <Search />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 500 }} aria-label="simple table">
@@ -66,7 +65,7 @@ const Crypto = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Grid>
+    </>
   );
 };
 export default Crypto;
