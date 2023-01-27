@@ -40,7 +40,7 @@ const Search = () => {
       xs={12}
       sx={{ marginBottom: '10px' }}>
       <Grid item xs={12}>
-        <Typography variant="h3" sx={{ fontWeight: '300' }}>
+        <Typography variant="h3" sx={{ fontWeight: '300', textAlign: 'center' }}>
           Explore the crypto world!
         </Typography>
       </Grid>
