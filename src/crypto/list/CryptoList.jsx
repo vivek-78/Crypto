@@ -30,7 +30,7 @@ const CryptoList = (props) => {
     percentColor = '#FF0000';
   }
 
-  useEffect(() => {
+  useEffect(async () => {
     async function fetchData() {
       const fetchedData = await axios.get(
         `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coin}&tsyms=USD&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
