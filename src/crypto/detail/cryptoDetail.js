@@ -11,68 +11,39 @@ const CryptoDetail = () => {
     function fetchData() {
       axios
         .get(
-          `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=80&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
+          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=80&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
         )
         .then((fetchedData) => {
           const data = fetchedData.data.Data.Data;
-          const times = data.map((obj) => new Date(obj.time * 1000).getHours());
-          const prices = data.map((obj) => obj.close);
-          setChartData({ times, prices });
+          setChartData(data.map((item) => [item.time * 1000, item.close]));
         });
     }
     fetchData();
-  });
-  const { prices, times } = chartData;
+  }, []);
   return (
     <Grid container>
       <Grid item xs={12}>
         <Chart
-          type="line"
-          width={1349}
-          height={550}
+          type="area"
+          height={500}
+          width={1500}
           series={[
             {
-              name: coin + '(USD)',
-              data: prices
+              name: coin,
+              data: chartData
             }
           ]}
           options={{
-            title: {
-              text: coin,
-              align: 'center',
-              margin: 10,
-              offsetX: 0,
-              offsetY: 0,
-              floating: false,
-              style: {
-                fontSize: '24px',
-                color: '#213043'
-              }
+            xaxis: {
+              type: 'datetime'
+            },
+            dataLabels: {
+              enabled: false
             },
             stroke: {
-              show: true,
               curve: 'smooth',
-              lineCap: 'butt',
-              colors: '#51db5a',
               width: 2
-            },
-            chart: {
-              id: 'bar-chart',
-              toolbar: {
-                show: false
-              }
-            },
-            grid: {
-              show: false
-            },
-            xaxis: {
-              categories: times,
-              axisBorder: {
-                show: false
-              },
-              axisTicks: {
-                show: false
-              }
+              // colors: '#51db5a'
             }
           }}></Chart>
       </Grid>
