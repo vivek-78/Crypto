@@ -1,10 +1,10 @@
-import { React, useState } from 'react';
-import { Grid, Button, Backdrop, CircularProgress, Snackbar, Typography } from '@mui/material';
-import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { React, useState } from "react";
+import { Grid, Button, Backdrop, CircularProgress, Snackbar, Typography } from "@mui/material";
+import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Search = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
   const navigate = useNavigate();
@@ -38,9 +38,9 @@ const Search = () => {
       alignItems="center"
       spacing={2}
       xs={12}
-      sx={{ marginBottom: '10px' }}>
+      sx={{ marginBottom: "10px" }}>
       <Grid item xs={12}>
-        <Typography variant="h3" sx={{ fontWeight: '300', textAlign: 'center' }}>
+        <Typography variant="h3" sx={{ fontWeight: "300", textAlign: "center" }}>
           Explore the crypto world!
         </Typography>
       </Grid>
@@ -50,13 +50,13 @@ const Search = () => {
             onChange={textOnChange}
             placeholder="Search for coins"
             style={{
-              height: '32px',
-              width: '250px',
-              alignItem: 'center',
-              borderRadius: '10px',
-              padding: '2px 20px',
-              borderStyle: 'solid',
-              borderWidth: 'small'
+              height: "32px",
+              width: "250px",
+              alignItem: "center",
+              borderRadius: "10px",
+              padding: "2px 20px",
+              borderStyle: "solid",
+              borderWidth: "small"
             }}
           />
         </Grid>
@@ -65,13 +65,13 @@ const Search = () => {
             variant="contained"
             onClick={handleOnClick}
             startIcon={<SearchTwoToneIcon />}
-            sx={{ maringTop: '0px', borderRadius: '10px', marginLeft: '0px' }}>
+            sx={{ maringTop: "0px", borderRadius: "10px", marginLeft: "0px" }}>
             Search
           </Button>
         </Grid>
       </Grid>
       <Backdrop open={loading}>
-        <CircularProgress sx={{ color: 'white' }} />
+        <CircularProgress sx={{ color: "white" }} />
       </Backdrop>
       <Snackbar
         open={snackBar}
