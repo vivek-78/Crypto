@@ -11,7 +11,7 @@ const CryptoNews = (props) => {
   }
   return (
     <Grid container spacing={2} className="main">
-      <Grid item direction="column" xs={3}>
+      <Grid item direction="column" xs={3} sx={{ marginBottom: 2 }}>
         <Card sx={{ width: 350, height: 270 }}>
           <CardMedia component="img" alt="green iguana" height="140" image={image} />
           <CardContent>
