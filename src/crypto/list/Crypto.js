@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from 'react';
-import axios from 'axios';
+import { React, useEffect, useState } from "react";
+import axios from "axios";
 import {
   Table,
   TableBody,
@@ -10,10 +10,10 @@ import {
   Paper,
   Grid,
   Typography
-} from '@mui/material';
-import Development from '../../development';
-import CryptoList from './CryptoList';
-import { CryptoNews } from './components';
+} from "@mui/material";
+import Development from "../../development";
+import CryptoList from "./CryptoList";
+import { CryptoNews } from "./components";
 
 const Crypto = () => {
   const [newsData, setNewsData] = useState({});
@@ -32,20 +32,20 @@ const Crypto = () => {
     return <Development />;
   }
   const coins = [
-    'BTC',
-    'ETH',
-    'SHIB',
-    'BNB',
-    'ADA',
-    'XLM',
-    'TRX',
-    'USDT',
-    'THETA',
-    'SOL',
-    'MATIC',
-    'ETC',
-    'DASH',
-    'ZEC'
+    "BTC",
+    "ETH",
+    "SHIB",
+    "BNB",
+    "ADA",
+    "XLM",
+    "TRX",
+    "USDT",
+    "THETA",
+    "SOL",
+    "MATIC",
+    "ETC",
+    "DASH",
+    "ZEC"
   ];
   return (
     <Grid>
@@ -65,7 +65,7 @@ const Crypto = () => {
                 />
               </Grid>
             ))
-          : ''}
+          : ""}
       </Grid>
       <Grid item>
         <TableContainer component={Paper}>
