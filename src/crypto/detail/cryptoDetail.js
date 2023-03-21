@@ -11,7 +11,7 @@ const CryptoDetail = () => {
     function fetchData() {
       axios
         .get(
-          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=80&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
+          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=1000&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
         )
         .then((fetchedData) => {
           const data = fetchedData.data.Data.Data;
@@ -25,8 +25,8 @@ const CryptoDetail = () => {
       <Grid item xs={12}>
         <Chart
           type="area"
-          height={500}
-          width={1500}
+          height={"250%"}
+          width={"100%"}
           series={[
             {
               name: coin,
@@ -43,7 +43,6 @@ const CryptoDetail = () => {
             stroke: {
               curve: "smooth",
               width: 2
-              // colors: '#51db5a'
             }
           }}></Chart>
       </Grid>
