@@ -1,12 +1,12 @@
-import { React, useEffect } from "react";
-import axios from "axios";
-import { Typography, Card, CardContent, Grid } from "@mui/material";
-import PropTypes from "prop-types";
+import { React, useEffect } from 'react';
+import axios from 'axios';
+import { Typography, Card, CardContent, Grid } from '@mui/material';
+import PropTypes from 'prop-types';
 const TrendingCoins = () => {
   let coins = [];
   useEffect(() => {
     const fetchCoins = async () => {
-      const fetchedData = await axios.get("https://api.coingecko.com/api/v3/search/trending");
+      const fetchedData = await axios.get('https://api.coingecko.com/api/v3/search/trending');
       coins = fetchedData.data.coins;
     };
     fetchCoins();
@@ -25,7 +25,7 @@ const TrendingCoins = () => {
       </Grid>
       <Card>
         <CardContent>
-          <Typography>{"HI"}</Typography>
+          <Typography>{'HI'}</Typography>
         </CardContent>
       </Card>
     </Grid>

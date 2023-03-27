@@ -1,10 +1,10 @@
-import NavBar from "./Navbar.js";
-import { Routes, Route } from "react-router-dom";
-import { Crypto } from "./crypto/list";
-import { Stockmarket } from "./stockmarket";
-import { About } from "./about";
-import CryptoDetail from "./crypto/detail/cryptoDetail";
-import Home from "./Home.jsx";
+import NavBar from './Navbar.js';
+import { Routes, Route } from 'react-router-dom';
+import { Crypto } from './crypto/list';
+import { Stockmarket } from './stockmarket';
+import { About } from './about';
+import CryptoDetail from './crypto/detail/cryptoDetail';
+import Home from './Home.jsx';
 
 function App() {
   return (

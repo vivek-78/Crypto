@@ -1,8 +1,8 @@
-import { React, useEffect, useState } from "react";
-import Chart from "react-apexcharts";
-import axios from "axios";
-import { Grid } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { React, useEffect, useState } from 'react';
+import Chart from 'react-apexcharts';
+import axios from 'axios';
+import { Grid } from '@mui/material';
+import { useParams } from 'react-router-dom';
 
 const CryptoDetail = () => {
   const { coin } = useParams();
@@ -25,8 +25,8 @@ const CryptoDetail = () => {
       <Grid item xs={12}>
         <Chart
           type="area"
-          height={"250%"}
-          width={"100%"}
+          height={'250%'}
+          width={'100%'}
           series={[
             {
               name: coin,
@@ -35,13 +35,13 @@ const CryptoDetail = () => {
           ]}
           options={{
             xaxis: {
-              type: "datetime"
+              type: 'datetime'
             },
             dataLabels: {
               enabled: false
             },
             stroke: {
-              curve: "smooth",
+              curve: 'smooth',
               width: 2
             }
           }}></Chart>

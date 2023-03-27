@@ -1,1 +1,1 @@
-export { default as CryptoDetail } from "./cryptoDetail";
+export { default as CryptoDetail } from './cryptoDetail';
