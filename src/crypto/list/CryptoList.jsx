@@ -1,9 +1,9 @@
-import { React, useState, useEffect } from "react";
-import axios from "axios";
-import { TableRow, TableCell } from "@mui/material";
-import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
-import { useNavigate } from "react-router-dom";
-import { MiniCoinChart } from "./components";
+import { React, useState, useEffect } from 'react';
+import axios from 'axios';
+import { TableRow, TableCell } from '@mui/material';
+import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
+import { useNavigate } from 'react-router-dom';
+import { MiniCoinChart } from './components';
 var previousValue = 0;
 
 const CryptoList = (props) => {
@@ -18,14 +18,14 @@ const CryptoList = (props) => {
   };
   function setPriceChange(orginalPrice) {
     const trim = orginalPrice.slice(2);
-    orginalPrice = parseFloat(trim.replace(/,/g, ""));
-    previousValue > orginalPrice ? setPriceColor("#FF0000") : setPriceColor("#00FF00");
+    orginalPrice = parseFloat(trim.replace(/,/g, ''));
+    previousValue > orginalPrice ? setPriceColor('#FF0000') : setPriceColor('#00FF00');
     previousValue = orginalPrice;
   }
   if (coinData.CHANGEPCTDAY > 0) {
-    percentColor = "#00FF00";
+    percentColor = '#00FF00';
   } else {
-    percentColor = "#FF0000";
+    percentColor = '#FF0000';
   }
 
   useEffect(() => {
@@ -48,8 +48,8 @@ const CryptoList = (props) => {
     <>
       <TableRow
         key={coin}
-        sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-        style={{ cursor: "pointer" }}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        style={{ cursor: 'pointer' }}
         onClick={handleRowClick}>
         <TableCell component="th" scope="row" align="center">
           <img
@@ -61,10 +61,10 @@ const CryptoList = (props) => {
         <TableCell align="center">{coin}</TableCell>
         <TableCell align="center" sx={{ color: priceColor }}>
           {coinData.PRICE}
-          {priceColor === "#00FF00" ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+          {priceColor === '#00FF00' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
         </TableCell>
         <TableCell align="center" sx={{ color: percentColor }}>
-          {coinData.CHANGEPCTDAY}%{" "}
+          {coinData.CHANGEPCTDAY}%{' '}
           {coinData.CHANGEPCTDAY > 0 ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
         </TableCell>
         <TableCell align="left">{coinData.HIGH24HOUR}</TableCell>

@@ -1,7 +1,7 @@
-import { React, useEffect, useState } from "react";
-import Chart from "react-apexcharts";
-import axios from "axios";
-import { Grid } from "@mui/material";
+import { React, useEffect, useState } from 'react';
+import Chart from 'react-apexcharts';
+import axios from 'axios';
+import { Grid } from '@mui/material';
 
 const CryptoDetail = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -32,20 +32,20 @@ const CryptoDetail = (props) => {
           height={120}
           series={[
             {
-              name: coin + "(USD)",
+              name: coin + '(USD)',
               data: prices
             }
           ]}
           options={{
             stroke: {
               show: true,
-              curve: "smooth",
-              lineCap: "butt",
+              curve: 'smooth',
+              lineCap: 'butt',
               colors: color,
               width: 2
             },
             chart: {
-              id: "bar-chart",
+              id: 'bar-chart',
               toolbar: {
                 show: false
               }
@@ -68,7 +68,7 @@ const CryptoDetail = (props) => {
             states: {
               hover: {
                 filter: {
-                  type: "none"
+                  type: 'none'
                 }
               }
             }
