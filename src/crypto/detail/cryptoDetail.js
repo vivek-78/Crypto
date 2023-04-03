@@ -1,8 +1,8 @@
-import { React, useEffect, useState } from 'react';
-import Chart from 'react-apexcharts';
-import axios from 'axios';
-import { Grid } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { React, useEffect, useState } from "react";
+import Chart from "react-apexcharts";
+import axios from "axios";
+import { Grid } from "@mui/material";
+import { useParams } from "react-router-dom";
 
 const CryptoDetail = () => {
   const { coin } = useParams();
@@ -32,32 +32,32 @@ const CryptoDetail = () => {
           height={550}
           series={[
             {
-              name: coin + '(USD)',
+              name: coin + "(USD)",
               data: prices
             }
           ]}
           options={{
             title: {
               text: coin,
-              align: 'center',
+              align: "center",
               margin: 10,
               offsetX: 0,
               offsetY: 0,
               floating: false,
               style: {
-                fontSize: '24px',
-                color: '#213043'
+                fontSize: "24px",
+                color: "#213043"
               }
             },
             stroke: {
               show: true,
-              curve: 'smooth',
-              lineCap: 'butt',
-              colors: '#51db5a',
+              curve: "smooth",
+              lineCap: "butt",
+              colors: "#51db5a",
               width: 2
             },
             chart: {
-              id: 'bar-chart',
+              id: "bar-chart",
               toolbar: {
                 show: false
               }

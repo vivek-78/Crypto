@@ -1,8 +1,8 @@
-import { React, useEffect, useState } from 'react';
-import axios from 'axios';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { React, useEffect, useState } from "react";
+import axios from "axios";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {
   Table,
   TableBody,
@@ -13,10 +13,10 @@ import {
   Paper,
   Grid,
   Typography
-} from '@mui/material';
-import Development from '../../development';
-import CryptoList from './CryptoList';
-import { CryptoNews } from './components';
+} from "@mui/material";
+import Development from "../../development";
+import CryptoList from "./CryptoList";
+import { CryptoNews } from "./components";
 
 const Crypto = () => {
   var settings = {
@@ -42,24 +42,24 @@ const Crypto = () => {
     return <Development />;
   }
   const coins = [
-    'BTC',
-    'ETH',
-    'SHIB',
-    'BNB',
-    'ADA',
-    'XLM',
-    'TRX',
-    'USDT',
-    'THETA',
-    'SOL',
-    'MATIC',
-    'ETC',
-    'DASH',
-    'ZEC'
+    "BTC",
+    "ETH",
+    "SHIB",
+    "BNB",
+    "ADA",
+    "XLM",
+    "TRX",
+    "USDT",
+    "THETA",
+    "SOL",
+    "MATIC",
+    "ETC",
+    "DASH",
+    "ZEC"
   ];
   return (
     <Grid>
-      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+      <Grid item xs={12} sx={{ textAlign: "center" }}>
         <Typography variant="h5">Latest News</Typography> <br />
       </Grid>
       <Grid sx={{ marginLeft: 2, marginBottom: 2 }}>
@@ -76,7 +76,7 @@ const Crypto = () => {
                   />
                 </div>
               ))
-            : ''}
+            : ""}
         </Slider>
       </Grid>
       <Grid item sx={{ marginTop: 5 }}>

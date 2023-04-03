@@ -1,8 +1,8 @@
-import { React } from 'react';
-import { Grid, Link, Typography } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import { React } from "react";
+import { Grid, Link, Typography } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 const CryptoNews = (props) => {
   // eslint-disable-next-line react/prop-types
   const { src, image, title, url, count } = props;
