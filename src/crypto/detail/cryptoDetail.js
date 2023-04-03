@@ -29,41 +29,20 @@ const CryptoDetail = () => {
           width={"100%"}
           series={[
             {
-              name: coin + '(USD)',
-              data: prices
+              name: coin,
+              data: chartData
             }
           ]}
           options={{
-            title: {
-              text: coin,
-              align: 'center',
-              margin: 10,
-              offsetX: 0,
-              offsetY: 0,
-              floating: false,
-              style: {
-                fontSize: '24px',
-                color: '#213043'
-              }
+            xaxis: {
+              type: "datetime"
+            },
+            dataLabels: {
+              enabled: false
             },
             stroke: {
-              show: true,
-              curve: 'smooth',
-              lineCap: 'butt',
-              colors: '#51db5a',
+              curve: "smooth",
               width: 2
-            },
-            chart: {
-              id: 'bar-chart',
-              toolbar: {
-                show: false
-              }
-            },
-            grid: {
-              show: false
-            },
-            xaxis: {
-              categories: times
             }
           }}></Chart>
       </Grid>
