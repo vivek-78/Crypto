@@ -1,14 +1,14 @@
-import React from 'react';
-import './Home.css';
-import { Button, Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "./Home.css";
+import { Button, Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const handleCryptoClick = () => {
-    navigate('/crypto');
+    navigate("/crypto");
   };
   const handleStockClick = () => {
-    navigate('/stockmarket');
+    navigate("/stockmarket");
   };
   return (
     <div className="main">
@@ -20,7 +20,7 @@ const Home = () => {
             <Button
               variant="contained"
               onClick={handleCryptoClick}
-              sx={{ backgroundColor: '#365B6C' }}>
+              sx={{ backgroundColor: "#365B6C" }}>
               Crypto →
             </Button>
           </Grid>
@@ -28,7 +28,7 @@ const Home = () => {
             <Button
               variant="contained"
               onClick={handleStockClick}
-              sx={{ backgroundColor: '#365B6C' }}>
+              sx={{ backgroundColor: "#365B6C" }}>
               Stocks →
             </Button>
           </Grid>
