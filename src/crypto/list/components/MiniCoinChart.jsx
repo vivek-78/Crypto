@@ -28,8 +28,9 @@ const CryptoDetail = (props) => {
       <Grid item xs={2}>
         <Chart
           type="line"
-          width={200}
-          height={120}
+          width={100}
+          height={80}
+          sx={{ padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px" }}
           series={[
             {
               name: coin + "(USD)",
@@ -42,7 +43,7 @@ const CryptoDetail = (props) => {
               curve: "smooth",
               lineCap: "butt",
               colors: color,
-              width: 2
+              width: 1
             },
             chart: {
               id: "bar-chart",
@@ -57,6 +58,12 @@ const CryptoDetail = (props) => {
               show: false,
               labels: {
                 show: false
+              },
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
               }
             },
             yaxis: {
@@ -64,6 +71,9 @@ const CryptoDetail = (props) => {
               labels: {
                 show: false
               }
+            },
+            tooltip: {
+              enabled: false
             },
             states: {
               hover: {

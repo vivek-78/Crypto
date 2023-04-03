@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from "react";
-import axios from "axios";
+import { React, useEffect, useState } from 'react';
+import axios from 'axios';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,21 +11,13 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Grid,
   Typography
-} from "@mui/material";
-import Development from "../../development";
-import CryptoList from "./CryptoList";
-import { CryptoNews } from "./components";
+} from '@mui/material';
+import Development from '../../development';
+import CryptoList from './CryptoList';
+import { CryptoNews } from './components';
 
 const Crypto = () => {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4
-  };
   const [newsData, setNewsData] = useState({});
   var count = 0;
   useEffect(() => {
@@ -42,44 +34,42 @@ const Crypto = () => {
     return <Development />;
   }
   const coins = [
-    "BTC",
-    "ETH",
-    "SHIB",
-    "BNB",
-    "ADA",
-    "XLM",
-    "TRX",
-    "USDT",
-    "THETA",
-    "SOL",
-    "MATIC",
-    "ETC",
-    "DASH",
-    "ZEC"
+    'BTC',
+    'ETH',
+    'SHIB',
+    'BNB',
+    'ADA',
+    'XLM',
+    'TRX',
+    'USDT',
+    'THETA',
+    'SOL',
+    'MATIC',
+    'ETC',
+    'DASH',
+    'ZEC'
   ];
   return (
     <Grid>
-      <Grid item xs={12} sx={{ textAlign: "center" }}>
+      <Grid item xs={12}>
         <Typography variant="h5">Latest News</Typography> <br />
       </Grid>
-      <Grid sx={{ marginLeft: 2, marginBottom: 2 }}>
-        <Slider {...settings}>
-          {Array.isArray(newsData)
-            ? newsData.map((data) => (
-                <div key={data.id}>
-                  <CryptoNews
-                    count={++count}
-                    src={data.source_info.name}
-                    title={data.title}
-                    url={data.url}
-                    image={data.imageurl}
-                  />
-                </div>
-              ))
-            : ""}
-        </Slider>
+      <Grid container direction="row" spacing={2} sx={{ marginLeft: 2 }} className="con">
+        {Array.isArray(newsData)
+          ? newsData.map((data) => (
+              <Grid item key={data.id}>
+                <CryptoNews
+                  count={++count}
+                  src={data.source_info.name}
+                  title={data.title}
+                  url={data.url}
+                  image={data.imageurl}
+                />
+              </Grid>
+            ))
+          : ''}
       </Grid>
-      <Grid item sx={{ marginTop: 5 }}>
+      <Grid item>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>

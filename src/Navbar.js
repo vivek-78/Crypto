@@ -8,8 +8,8 @@ function NavBar() {
       <Toolbar>
         <Grid container direction="row" justifyContent="flex-start" alignItems="center">
           <Grid item>
-            <Typography variant="h5" sx={{ marginLeft: "auto", fontWeight: "800" }}>
-              Branding
+            <Typography variant="h5" sx={{ marginLeft: "auto", fontWeight: "500" }}>
+              ProjectName
             </Typography>
           </Grid>
           <Grid item>

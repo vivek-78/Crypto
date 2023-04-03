@@ -1,0 +1,40 @@
+.body{
+  margin:0px;
+  color: #F3F0EB;
+}
+.main{
+  padding-top: 12rem;
+  padding-left: 7rem;
+  
+}
+.project-name{
+  color: #365B6C;
+  font-size: 4.7rem;
+  font-family: 'Barlow', sans-serif;
+}
+.subtitles{
+  color: #365B6C;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.2rem;
+}
+.buttons{
+  border-color: #365B6C;
+  color: #F3F0EB;
+
+}
+.crypto-button{
+  border-radius: 2rem;
+  width: 8rem;
+  height: 2.7rem;
+  color: #365B6C;
+  text-align: center;
+  border-width: .05rem;
+}
+.stocks-button{
+  border-radius: 2rem;
+  width: 8rem;
+  height: 2.7rem;
+  color: #365B6C;
+  text-align: center;
+  border-width: .05rem;
+}

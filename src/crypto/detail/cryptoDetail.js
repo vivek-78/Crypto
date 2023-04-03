@@ -11,53 +11,50 @@ const CryptoDetail = () => {
     function fetchData() {
       axios
         .get(
-          `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=80&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
+          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=1000&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
         )
         .then((fetchedData) => {
           const data = fetchedData.data.Data.Data;
-          const times = data.map((obj) => new Date(obj.time * 1000).getHours());
-          const prices = data.map((obj) => obj.close);
-          setChartData({ times, prices });
+          setChartData(data.map((item) => [item.time * 1000, item.close]));
         });
     }
     fetchData();
-  });
-  const { prices, times } = chartData;
+  }, []);
   return (
     <Grid container>
       <Grid item xs={12}>
         <Chart
-          type="line"
-          width={1349}
-          height={550}
+          type="area"
+          height={"250%"}
+          width={"100%"}
           series={[
             {
-              name: coin + "(USD)",
+              name: coin + '(USD)',
               data: prices
             }
           ]}
           options={{
             title: {
               text: coin,
-              align: "center",
+              align: 'center',
               margin: 10,
               offsetX: 0,
               offsetY: 0,
               floating: false,
               style: {
-                fontSize: "24px",
-                color: "#213043"
+                fontSize: '24px',
+                color: '#213043'
               }
             },
             stroke: {
               show: true,
-              curve: "smooth",
-              lineCap: "butt",
-              colors: "#51db5a",
+              curve: 'smooth',
+              lineCap: 'butt',
+              colors: '#51db5a',
               width: 2
             },
             chart: {
-              id: "bar-chart",
+              id: 'bar-chart',
               toolbar: {
                 show: false
               }
