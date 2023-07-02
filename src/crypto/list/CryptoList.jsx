@@ -58,7 +58,11 @@ const CryptoList = (props) => {
           style={{ cursor: "pointer" }}
           height={75}
           onClick={handleRowClick}>
-          <TableCell component="th" scope="row" align="center" sx={{ padding: "0px 0px 0px 0px" }}>
+          <TableCell
+            component="th"
+            scope="row"
+            align="center"
+            sx={{ padding: "0px 0px 0px 0px", paddingLeft: 3 }}>
             <Grid container spacing={1}>
               <Grid item xs={6}>
                 <img
@@ -67,9 +71,13 @@ const CryptoList = (props) => {
                   height={40}
                   alt=""></img>
               </Grid>
-              <Grid item xs={6} sx={{ marginTop: "auto", marginBottom: "auto" }}>
-                <Typography sx={{ width: "10px", fontWeight: "535" }}> {coin} </Typography>
-              </Grid>
+            </Grid>
+          </TableCell>
+          <TableCell
+            align="right"
+            sx={{ color: priceColor, padding: "0px 0px 0px 0px", paddingLeft: 5 }}>
+            <Grid item xs={6} sx={{ marginTop: "auto", marginBottom: "auto" }}>
+              <Typography sx={{ width: "10px", fontWeight: "535" }}> {coin} </Typography>
             </Grid>
           </TableCell>
           <TableCell align="center" sx={{ color: priceColor, padding: "0px 0px 0px 0px" }}>
@@ -93,7 +101,7 @@ const CryptoList = (props) => {
           <TableCell align="center" sx={{ padding: "0px 0px 0px 0px" }}>
             <Typography>{coinData.MKTCAP}</Typography>
           </TableCell>
-          <TableCell align="right" sx={{ padding: "0px 0px 0px 0px", marginleft: "10px" }}>
+          <TableCell align="center" sx={{ padding: "0px 0px 0px 0px", marginleft: "10px" }}>
             {<MiniCoinChart coin={coin} color={percentColor} />}
           </TableCell>
         </TableRow>
