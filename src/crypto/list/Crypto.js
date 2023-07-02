@@ -1,5 +1,8 @@
-import { React } from "react";
-import { Search } from "./components";
+import { React, useEffect, useState } from "react";
+import axios from "axios";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {
   Table,
   TableBody,
@@ -8,64 +11,98 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Grid,
   Typography
 } from "@mui/material";
+import Development from "../../development";
 import CryptoList from "./CryptoList";
-const coins = [
-  "BTC",
-  "ETH",
-  "SOL",
-  "USDC",
-  "TWT",
-  "BNB",
-  "ADA",
-  "XLM",
-  "TRX",
-  "USDT",
-  "THETA",
-  "MATIC",
-  "ETC",
-  "DASH"
-];
+import { CryptoNews } from "./components";
+
 const Crypto = () => {
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4
+  };
+  const [newsData, setNewsData] = useState({});
+  var count = 0;
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedData = await axios.get(
+        `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=557770814a82703ce2ed50c174c03264fee9a0117e1dc109f892d1a4f82084fc`
+      );
+      const data = fetchedData.data.Data;
+      setNewsData(data);
+    }
+    fetchData();
+  });
+  if (newsData == null) {
+    return <Development />;
+  }
+  const coins = [
+    "BTC",
+    "ETH",
+    "SHIB",
+    "BNB",
+    "ADA",
+    "XLM",
+    "TRX",
+    "USDT",
+    "THETA",
+    "SOL",
+    "MATIC",
+    "ETC",
+    "DASH",
+    "ZEC"
+  ];
   return (
-    <>
-      <Search />
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 500 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="center">
-                <Typography sx={{ fontWeight: "bold" }}>Coin</Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography sx={{ fontWeight: "bold" }}>Price</Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography sx={{ fontWeight: "bold" }}>Change%</Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography sx={{ fontWeight: "bold" }}>Highest Today</Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography sx={{ fontWeight: "bold" }}>Lowest Today</Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography sx={{ fontWeight: "bold" }}>Market Cap</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography sx={{ fontWeight: "bold" }}>Last 7 Days</Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {coins.map((coin) => (
-              <CryptoList coin={coin} key={coin} />
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </>
+    <Grid>
+      <Grid item xs={12} sx={{ textAlign: "center" }}>
+        <Typography variant="h5">Latest News</Typography> <br />
+      </Grid>
+      <Grid sx={{ marginLeft: 0, marginBottom: 2 }}>
+        <Slider {...settings}>
+          {Array.isArray(newsData)
+            ? newsData.map((data) => (
+                <div key={data.id}>
+                  <CryptoNews
+                    count={++count}
+                    src={data.source_info.name}
+                    title={data.title}
+                    url={data.url}
+                    image={data.imageurl}
+                  />
+                </div>
+              ))
+            : ""}
+        </Slider>
+      </Grid>
+      <Grid item sx={{ marginTop: 5 }}>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Logo</TableCell>
+                <TableCell align="center">Name</TableCell>
+                <TableCell align="center">Price</TableCell>
+                <TableCell align="center">Change Percentage</TableCell>
+                <TableCell align="center">Highest Today</TableCell>
+                <TableCell align="center">Lowest Today</TableCell>
+                <TableCell align="center">Market Cap</TableCell>
+                <TableCell align="left">Last Hour</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {coins.map((coin) => (
+                <CryptoList coin={coin} key={coin} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+    </Grid>
   );
 };
 export default Crypto;
