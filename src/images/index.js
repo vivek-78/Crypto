@@ -1,1 +1,1 @@
-export { default as underDevelopment } from './underDevelopment.jpg';
+export { default as underDevelopment } from "./underDevelopment.jpg";
